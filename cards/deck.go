@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"strings"
+)
 
 // create a new type of 'deck'
 // which is a slice of string
@@ -14,9 +17,9 @@ func newDeck() deck {
 	cardSuits := []string{"Spades", "Hearts", "Diamonds", "Club"}
 	cardValues := []string{"Ace", "One", "Two", "Three"}
 
-	for _, suit := range cardSuits {
-		for _, value := range cardValues {
-			cards = append(cards, suit+" of "+value)
+	for _, value := range cardValues {
+		for _, suit := range cardSuits {
+			cards = append(cards, value+" of "+suit)
 		}
 	}
 	return cards
@@ -33,4 +36,10 @@ func (d deck) print() {
 // function to return multiple values
 func deal(d deck, handSize int) (deck, deck) {
 	return d[:handSize], d[handSize:] // slicing
+}
+
+// receiver function
+// for use deck.toString()
+func (d deck) toString() string {
+	return strings.Join([]string(d), ",")
 }
