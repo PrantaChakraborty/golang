@@ -10,6 +10,7 @@ func main() {
 	// slice
 	//cards := newDeck()
 	cards := newDeckFromFile("my_cards")
+	cards.shuffle()
 	cards.print()
 	//looping through the cards
 	//for i, card := range cards {
