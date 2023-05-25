@@ -23,7 +23,7 @@ func main() {
 	//}
 	//colors["white"] = "#ffff"
 	//fmt.Println(colors)
-	//fmt.Println(colors["velvet"])
+	//fmt.Println(colors["velvet"])VVV
 	//alex := person{firstName: "Alex", lastname: "Anderson"}
 	//var alex person
 	//alex.firstName = "Alex"
@@ -38,5 +38,10 @@ func main() {
 			zipCode: 3400,
 		},
 	}
-	fmt.Printf("%+v", jim)
+	jim.print()
+}
+
+// receiver function to print the info of a person
+func (p person) print() {
+	fmt.Printf("%+v", p)
 }
