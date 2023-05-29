@@ -38,10 +38,20 @@ func main() {
 			zipCode: 3400,
 		},
 	}
+	//jimPointer := &jim // get the memory address of jim
+	//jimPointer.updateName("kim")
+
+	jim.updateName("kim") // in go, you can pass as a person or as a memory address
 	jim.print()
 }
 
 // receiver function to print the info of a person
 func (p person) print() {
 	fmt.Printf("%+v", p)
+}
+
+// *person, is a type description, it means we're working with a pointer to a person
+func (p *person) updateName(firstName string) {
+	// *pointerToPerson is an operator, it means we want to manipulate the value the pointer is referencing
+	(*p).firstName = firstName
 }
